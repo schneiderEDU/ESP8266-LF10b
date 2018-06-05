@@ -1,3 +1,4 @@
+//Globale Variable
 int i = 1;
 
 //setup() wird zum Start des SoCs genau einmal ausgeführt
