@@ -36,79 +36,87 @@ void loop() {
     return;
   }
   Serial.println("A new client has connected.");
-  String request = client.readStringUntil('\r');
+  unsigned long ultimeout = millis()+250;
+  while(!client.available() && (millis()<ultimeout) )
+  {
+    delay(1);
+  }
+  if(millis()>ultimeout)
+  {
+    Serial.println("A client timed out!");
+    return;
+  }
+  String sRequest = client.readStringUntil('\r');
   client.flush();
-  if (request == "") {
+  if (sRequest == "") {
     Serial.println("Request was empty! - Stopping client now!");
     client.stop();
     return;
   }
-  String path = "", param = "", cmd = "";
-  String getStart  = "GET ";
-  int start, endSpace, endQuest;
-  start = request.indexOf(getStart);
-  if(start >= 0) {
-    start +=+ getStart.length();
-    endSpace = request.indexOf(" ", start);
-    endQuest = request.indexOf("?", start);
+  String sPath = "", sParam = "", sCmd = "";
+  String sGetStart  = "GET ";
+  int iStart, iEndSpace, iEndQuest;
+  iStart = sRequest.indexOf(sGetStart);
+  if(iStart >= 0) {
+    iStart +=+ sGetStart.length();
+    iEndSpace = sRequest.indexOf(" ", iStart);
+    iEndQuest = sRequest.indexOf("?", iStart);
 
-    if(endSpace > 0) {
-      if(endQuest > 0) {
-        path = request.substring(start, endQuest);
-        param = request.substring(endQuest, endSpace);
+    if(iEndSpace > 0) {
+      if(iEndQuest > 0) {
+        sPath = sRequest.substring(iStart, iEndQuest);
+        sParam = sRequest.substring(iEndQuest, iEndSpace);
       }
       else {
-        path = request.substring(start, endSpace);
+        sPath = sRequest.substring(iStart, iEndSpace);
       }
     }
   }
-  if(param.length()>0)
+  if(sParam.length()>0)
   {
-    int equ=param.indexOf("=");
-    if(equ>=0)
+    int sEqu=sParam.indexOf("=");
+    if(sEqu>=0)
     {
-      cmd = param.substring(equ+1,param.length());
-      Serial.println(cmd);
+      sCmd = sParam.substring(sEqu+1,sParam.length());
+      Serial.println(sCmd);
     }
   }
-  String response, header;
-  if(path!="/") {
-    response="<html><head><title>404 Not Found</title></head><body><h1>Not Found</h1><p>The requested URL was not found on this server.</p></body></html>";
-    header  = "HTTP/1.1 404 Not found\r\n";
-    header += "Content-Length: ";
-    header += response.length();
-    header += "\r\n";
-    header += "Content-Type: text/html\r\n";
-    header += "Connection: close\r\n";
-    header += "\r\n";
+  String sResponse, sHeader;
+  if(sPath!="/") {
+    sResponse="<html><head><title>404 Not Found</title></head><body><h1>Not Found</h1><p>The requested URL was not found on this server.</p></body></html>";
+    sHeader  = "HTTP/1.1 404 Not found\r\n";
+    sHeader += "Content-Length: ";
+    sHeader += sResponse.length();
+    sHeader += "\r\n";
+    sHeader += "Content-Type: text/html\r\n";
+    sHeader += "Connection: close\r\n";
+    sHeader += "\r\n";
   }
   else {
-    response  = "<html><head><title>WeMos Relay Switch</title>";
-    response += "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=yes\"></head><body>";
-    response += "<h1>WeMos Relay Switch</h1>";
-    response += "<p>Relay on D1 <a href=\"?relay=ON\"><button>On</button></a>&nbsp;<a href=\"?relay=OFF\"><button>Off</button></a></p></body></html>";
+    sResponse  = "<html><head><title>WeMos Relay Switch</title>";
+    sResponse += "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=yes\"></head><body>";
+    sResponse += "<h1>WeMos Relay Switch</h1>";
+    sResponse += "<p>Relay on D1 <a href=\"?relay=ON\"><button>On</button></a>&nbsp;<a href=\"?relay=OFF\"><button>Off</button></a></p></body></html>";
 
-    if (cmd.length() > 0)
+    if (sCmd.length() > 0)
     {
-      if(cmd.indexOf("ON") >= 0) {
+      if(sCmd.indexOf("ON") >= 0) {
         digitalWrite(relayPin, 1);
       }
-      else if(cmd.indexOf("OFF") >= 0)
+      else if(sCmd.indexOf("OFF") >= 0)
       {
         digitalWrite(relayPin, 0);
       }
     }
 
-    header  = "HTTP/1.1 200 OK\r\n";
-    header += "Content-Length: ";
-    header += response.length();
-    header += "\r\n";
-    header += "Content-Type: text/html\r\n";
-    header += "Connection: close\r\n";
-    header += "\r\n";
+    sHeader  = "HTTP/1.1 200 OK\r\n";
+    sHeader += "Content-Length: ";
+    sHeader += sResponse.length();
+    sHeader += "\r\n";
+    sHeader += "Content-Type: text/html\r\n";
+    sHeader += "Connection: close\r\n";
+    sHeader += "\r\n";
   }
-  client.print(header);
-  client.print(response);
-  client.stop();
-  Serial.println("Client disconnected!");
+  client.print(sHeader);
+  client.print(sResponse);
 }
