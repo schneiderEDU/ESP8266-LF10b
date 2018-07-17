@@ -20,6 +20,13 @@ void setAll(int r, int g, int b) {
   led.show();
 }
 
+void setAll(uint32_t c) {
+  for(int i = 0; i < NUMPIX; i++) {
+    led.setPixelColor(i, c);
+  }
+  led.show();
+}
+
 
 void rotation(uint32_t color, int time) {
     led.setPixelColor(0, color);
@@ -53,9 +60,9 @@ void pulse(byte r, byte g, byte b) {
     }
 }
 
-void strobe(byte r, byte g, byte b, int flashCount, int flashDelay) {
+void strobe(uint32_t color, int flashCount, int flashDelay) {
   for(int i = 0; i < flashCount; i++) {
-    setAll(r, g, b);
+    setAll(color);
     delay(flashDelay);
     allOff();
     delay(flashDelay);
@@ -69,7 +76,7 @@ void setup() {
 
 void loop() {
     led.setBrightness(64);
-    rotation(led.Color(50,0,0), 1000);
+    rotation(led.Color(255, 15, 223), 1000);
     pulse(0xFF, 0x0F, 0xDF);
-    strobe(0xFF, 0x0F, 0xDF, 50, 50);
+    strobe(led.Color(255, 15, 223), 50, 50);
 }
