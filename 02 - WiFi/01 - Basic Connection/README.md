@@ -41,11 +41,17 @@ Die *status*-Methode des *WiFi*-Objekts kann verschiedene Rückgabewerte haben. 
 | :------------ | :-------- |
 | WL_CONNECTED | Es besteht eine Verbindung zum Drahtlosnetzwerk. |
 | WL_CONNECT_FAILED | Es konnt keine Verbindung zum Drahtlosnetzwerk aufgebaut werden. |
-| WL_CONNECTION_LOST | Die Verbindung zum Drahtlosnetzwerk ging verloren. |
-| WL_DISCONNECTED | Die Verbindung zum Drahtlosnetzwerk wurde abgebaut.
+| WL_DISCONNECTED | Die Verbindung zum Drahtlosnetzwerk wurde abgebaut. |
+| WL_IDLE | Es wird gerade zwischen zwei Status gewechselt. |
+| WL_NO_SSID_AVAIL | Das Netzwerk mit der SSID ist nicht verfügbar. |
 
+Mittels *localIP*-Methode des *WiFi*-Objekts ist es möglich die vom DHCP zugewiesene IP zu ermitteln.
 
+```
+WiFi.localIP()
+```
 
+Die Methode wird parameterlos aufgerufen.
 
 ## Weiterentwicklung
 
