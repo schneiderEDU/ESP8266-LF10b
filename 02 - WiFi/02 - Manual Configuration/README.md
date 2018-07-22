@@ -21,6 +21,9 @@ Durch diesen Methodenaufruf wird die IP-Adresskonfiguration wie gewünscht vorge
 ## Weiterentwicklung
 
 
+## Weiterführende Literatur
+
+* [Station Class](https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/station-class.html) - Dokumentation der Station-Klasse der *ESP8266WiFi.h*-Bibliothek
 
 ## Entwickelt mit
 
