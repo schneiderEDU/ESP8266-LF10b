@@ -55,6 +55,7 @@ Die Methode wird parameterlos aufgerufen.
 
 ## Weiterentwicklung
 
+Mittels der *status*-Methode können noch weitere Fehler beim Verbindungsaufbau oder im weiteren Programmablauf abgefangen werden. Diese Funktionalität sollte man sich zu nutze machen.
 
 
 ## Entwickelt mit
