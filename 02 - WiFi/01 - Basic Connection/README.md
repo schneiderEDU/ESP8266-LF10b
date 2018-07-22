@@ -35,7 +35,7 @@ while(WiFi.status() != WL_CONNECTED) {
 
 Die *status*-Methode des *WiFi*-Objekts kann verschiedene Rückgabewerte haben. Bei erfolgreicher Verbindung wird von der *status*-Methode *WL_CONNECTED* zurückgegeben.
 
-###Wichtige Rückgabewerte von WiFi.status()
+### Wichtige Rückgabewerte von WiFi.status()
 
 | Rückgabewert  | Bedeutung |
 | :------------ | :-------- |
