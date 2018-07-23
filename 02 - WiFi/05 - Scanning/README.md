@@ -35,15 +35,32 @@ Mittels *for*-Schleife wird nun über die Ergebnismenge des Scans iteriert. Für
 | `WiFi.encryptionType()` | liefert den Verschlüsselungstyp des Drahtlosnetzwerks |
 | `WiFi.isHidden()` | liefert die Sichtbarkeit des Drahtlosnetzwerks |
 
+### Rückgabewerte von `WiFi.encryptionType()`
 
+Die Funktion `WiFi.encryptionType()` hat mehrere Rückgabewerte. Nachstehende Tabelle schlüsselt deren Bedeutung auf.
 
+| Rückgabewert | Verschlüsselungstyp |
+| :----------- | :------------------ |
+| `ENC_TYPE_NONE` | Keine Verschlüsselung |
+| `ENC_TYPE_WEP` | WEP |
+| `ENC_TYPE_TKIP` | WPA/TKIP |
+| `ENC_TYPE_CCMP` | WPA2/PSK |
+| `ENC_TYPE_AUTO` | WPA/WPA2/PSK|
+
+Abschließend lassen sich die Ergebnisse des Scans Mittels
+
+```
+WiFi.scanDelete();
+```
+
+aus dem Speicher löschen.
 
 ## Weiterentwicklung
 
 
 ## Weiterführende Literatur
 
-* [Soft Access Point Class](https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/soft-access-point-class.html) - Dokumentation der SoftAP-Klasse der *ESP8266WiFi.h*-Bibliothek
+* [Scan Class](https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/scan-class.html) - Dokumentation der Scan-Klasse der *ESP8266WiFi.h*-Bibliothek
 
 ## Entwickelt mit
 
