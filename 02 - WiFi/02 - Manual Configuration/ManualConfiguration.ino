@@ -26,7 +26,7 @@ void setup() {
       Serial.print(".");
     }
     Serial.println();
-    //Ausgabe bei einer erfolgreichen Verbindung, inkl. vom DHCP-Server erhaltenen IP-Adresse
+    //Ausgabe bei einer erfolgreichen Verbindung
     Serial.print("Connected as ");
     Serial.println(WiFi.localIP());
 }
