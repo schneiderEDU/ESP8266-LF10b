@@ -4,7 +4,7 @@
 const int WAIT_DELAY = 10000;
 long last_millis = -1;
 
-//WiFi credentials - Festlegen der Verbindungsdaten für die Clients
+//WiFi credentials - Festlegen der Verbindungsdaten und -parameter für die Clients
 const char* ssid = "MyOwnAP";
 const char* password = "mysupersecretpassword";
 const int channel = 6;
