@@ -1,39 +1,24 @@
-# 03 - Basic AP Mode
+# 04 - Advanced AP Mode
 
 Der ESP8266 kann nicht nur zu einem vorhandenen Drahtlosnetzwerk verbinden, sondern auch ein eigenes Drahtlosnetzwerk ("Hotspot" sagt man wohl heute) aufspannen.
 
 ## Grundlagenwissen
 
-Nahezu jeder WLAN-Adapter kann in einem Access Point-Modus versetzt werden, in dem er dann als Drahtloszugriffspunkt agiert. D.h. andere Geräte können über diesen Zugriffspunkt drahtlos miteinander vernetzt werden. Dies ist auch mit dem ESP8266 möglich. Dafür benötigt man lediglich eine SSID, der Anzeigename des Drahtlosnetzwerks, und (optional) ein Passwort, was wir aber allein aus Sicherheitsgründen nicht als optional ansehen sollten. Diese werden, genau wie schon im Station-Modus, deklariert.
+Neben der Minimalkonfiguration kann auch eine eigene IP-Konfiguration und eine erweiterte Konfiguration des AP-Parameter vorgenommen werden. Mittels
 
 ```
-const char* ssid = "MyOwnAP";
-const char* password = "mysupersecretpassword";
+WiFi.softAPConfig(localIP, gateway, netmask);
 ```
 
-Mittels *softAP*-Methode des *WiFi*-Objekts wird der Access Point realisiert.
+kann die IP-Adresskonfiguration des Access Points, analog zur manuellen Konfiguration im Station-Modus [02 - Manual Configuration](https://github.com/schneiderEDU/ESP8266-LF10b/tree/master/02%20-%20WiFi/02%20-%20Manual%20Configuration) vorgenommen werden.
+Die *softAP*-Methode kann noch um die optionalen Parameter `channel` und `hidden` erweitert werden.
 
 ```
-WiFi.softAP(ssid, password);
+WiFi.softAP(ssid, password, channel, hidden);
 ```
 
-Diese Methode gibt `true` (bei erfolgreicher Ausführung) bzw. `false` zurück. Damit lässt sie sich auch zu grundlegender Kontrolle der Ausführung verwenden.
+Dabei definiert `channel` den zu verwendenden Kanal des Access Points (zwischen 1 und 13, Standard 1). Der Parameter `hidden` dient die SSID des Drahtlosnetzwerks zu verstecken. Dieser muss dazu auf `true` gesetzt werden.
 
-Die IP-Adresse des Access Points kann mittels
-
-```
-WiFi.softAPIP();
-```
-
-ermittelt werden. Diese lautet standardmäßig `192.168.4.1`.
-
-Um die Anzahl der verbundenen Clients zu ermitteln, ist die Methode
-
-```
-WiFi.softAPgetStationNum();
-```
-
-implementiert. Diese gibt diese Anzahl als Ganzzahl zurück.
 
 ## Weiterentwicklung
 
