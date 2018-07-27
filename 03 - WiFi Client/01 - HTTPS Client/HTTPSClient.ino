@@ -31,20 +31,20 @@ void loop() {
   if(last_millis < (current_millis-WAIT_DELAY)) {
     last_millis = current_millis;
     HTTPClient client;
-    Serial.println("[HTTP] Sende Anfrage...");
+    Serial.println("[HTTPS] Send request...");
     client.begin(url, fingerprint);
-    Serial.print("[HTTP] GET-Request... ");
+    Serial.print("[HTTPS] GET-Request... ");
     int responseCode = client.GET();
     if(responseCode > 0) {
-      Serial.printf("Antwort: %d\n", responseCode);
+      Serial.printf("Response: %d\n", responseCode);
       if(responseCode == HTTP_CODE_OK) {
-        Serial.println("Antwort des Servers: ");
+        Serial.println("Content: ");
         String payload = client.getString();
         Serial.println(payload);
       }
     }
     else {
-      Serial.printf("fehlgeschlagen, Fehler: %s\n", client.errorToString(responseCode).c_str());
+      Serial.printf("failed, Error: %s\n", client.errorToString(responseCode).c_str());
     }
     client.end();
   }
