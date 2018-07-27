@@ -8,8 +8,8 @@ const char* password = "mysupersecretpassword";
 const int WAIT_DELAY = 10000;
 long last_millis = -1;
 
-const char* url = "https://iot.schneider-edu.it/esp8266/httpclient/test.html";
-// const char* url = "http://iot.schneider-edu.it/esp8266/httpclient/test2.html"; //connection refused
+const char* url = "https://iot.schneider-edu.it/esp8266/httpsclient/test.html";
+// const char* url = "http://iot.schneider-edu.it/esp8266/httpsclient/test2.html"; //connection refused
 const char* fingerprint = "e992449775c128d1d15f3e13ad81e9951e58ce65";
 
 void setup() {
