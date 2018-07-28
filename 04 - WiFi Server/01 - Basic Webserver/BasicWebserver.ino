@@ -17,7 +17,7 @@ void handleAltPath() {
 }
 
 void handleNotFound() {
-    server.send(404);
+    server.send(404, "text/plain", "The requested URL was not found on this server.");
 }
 
 void setup() {
