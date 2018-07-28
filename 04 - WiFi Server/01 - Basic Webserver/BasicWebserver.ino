@@ -16,6 +16,9 @@ void handleAltPath() {
     server.send(200, "text/plain", "This is the alternative path");
 }
 
+void handleNotFound() {
+    server.send(404);
+}
 
 void setup() {
     Serial.begin(115200);
@@ -31,6 +34,7 @@ void setup() {
     Serial.println(WiFi.localIP());
     server.on("/", handleRootPath);
     server.on("/alt", handleAltPath);
+    server.onNotFound(handleNotFound);
     server.begin();
     Serial.printf("[Server] Server is listening on Port %i", serverPort);
 }
