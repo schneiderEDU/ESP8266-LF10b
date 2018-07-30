@@ -9,9 +9,9 @@ const int WAIT_DELAY = 10000;
 long last_millis = -1;
 
 const char* domain = "iot.schneider-edu.it";
+const String doc = "/esp8266/httpsclient/test.html"
 const char* fingerprint = "e992449775c128d1d15f3e13ad81e9951e58ce65";
 const int httpsPort = 443;
-const String doc = "/esp8266/httpsclient/test.html";
 
 void setup() {
     Serial.begin(115200);
