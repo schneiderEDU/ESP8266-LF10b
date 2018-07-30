@@ -57,7 +57,7 @@ Der GET-Request wurde ohne Parameter ausgeführt. Dies dient lediglich dazu ein 
 
 * [Client](http://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/client-examples.html) - Beispiele für die Verwendung *ESP8266HTTPClient.h*-Bibliothek
 * [HTTP Protokoll](https://www.elektronik-kompendium.de/sites/net/0902231.htm) - Erläuterungen zum HTTP-Protokoll
-* [HTTPS](https://www.marcobeierer.de/wissen/ssl-tls-und-https-erklaert) - Erläuterun zu HTTPS, SSL und TLS
+* [HTTPS](https://www.marcobeierer.de/wissen/ssl-tls-und-https-erklaert) - Erläuterungen zu HTTPS, SSL und TLS
 * [WebHooks](https://de.wikipedia.org/wiki/WebHooks) - Kurze Erläuterung und Liste mit Anwendern von WebHooks
 
 ## Entwickelt mit
