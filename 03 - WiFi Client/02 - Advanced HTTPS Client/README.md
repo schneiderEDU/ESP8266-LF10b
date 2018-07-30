@@ -69,7 +69,7 @@ Dies scheint im ersten Moment komplizierter, allerdings lässt dies dem Programm
 
 ## Weiterentwicklung
 
-[in Bearbeitung]
+Der GET-Request wurde ohne Parameter ausgeführt. Dies dient lediglich dazu ein Dokument von einem Server zu holen. Jedoch ist die Technik hauptsächlich zur Datenverarbeitung und -übermittlung gedacht. Können wir das Beispiel um Daten erweitern und den Request so für uns generell nutzbar machen?
 
 ## Weiterführende Literatur
 
