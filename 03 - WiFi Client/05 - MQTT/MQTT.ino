@@ -45,8 +45,7 @@ void setup() {
         Serial.print(broker);
         Serial.print(" as ");
         Serial.println(clientName);
-        char* message = "Hello from ESP8266";
-        mqttClient.publish(topicName, message);
+        mqttClient.publish(topicName, "Hello from ESP8266");
         Serial.print("[MQTT] Send to topic");
         Serial.print(topicName);
         Serial.print(" message: ");
