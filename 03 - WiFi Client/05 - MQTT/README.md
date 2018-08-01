@@ -4,7 +4,7 @@
 
 ## Grundlagenwissen
 
-MQTT basiert auf einer Topic-Struktur, ähnlich eines Webforums. Es gibt eigentlich nur 2 Operationen - ein Thema (*Topic*) abonnieren (*subscribe*) oder in ein Thema schreiben (*publish*). Wenn ein Client in ein Thema schreibt, erhalten alle Abonnenten des Themas die Nachricht. Diese Funktionalität wird in der *PubSubClient*-Bibliothek bereitgestellt, die wir in unseren Sketch einbinden müssen.
+MQTT basiert auf einer Topic-Struktur, ähnlich eines Webforums. Es gibt eigentlich nur 2 Operationen - ein Thema (*Topic*) abonnieren (*subscribe*) oder in ein Thema schreiben (*publish*). Wenn ein Client in ein Thema schreibt, erhalten alle Abonnenten des Themas die Nachricht. Diese Funktionalität wird in der [*PubSubClient*-Bibliothek](https://github.com/knolleary/pubsubclient) (Bitte Einschränkungen beachten!) bereitgestellt, die wir in unseren Sketch einbinden müssen.
 
 ```
 #include <PubSubClient.h>
@@ -28,13 +28,58 @@ PubSubClient mqttClient(espClient);
 
 Wir übergeben das *WiFiClient*-Objekt per Parameter an das *PubSubClient*-Objekt, da dieses auf dem *WiFiClient*-Objekt aufsetzt.
 
+Das *PubSubClient*-Objekt wird anschließend parametriert.
+
+```
+mqttClient.setServer(broker, port);
+mqttClient.setCallback(callback);
+```
+
+Mittels der *setServer*-Methode werden Server-Domain und -Port an das Objekt geschrieben, per *setCallback*-Methode wird definiert welche Methode des Sketches bei Eintreffen einer neuen Nachricht aufgerufen wird.
+
+```
+void callback(char* topic, byte* payload, unsigned int msgLength) {
+    Serial.print("[MQTT] Message in topic ");
+    Serial.println(topic);
+    Serial.println("[MQTT] Message payload: ");
+    for(int i = 0; i < msgLength; i++) {
+      Serial.print((char) payload[i]);
+    }
+    Serial.println();
+}
+```
+
+Die *callback*-Methode erhält dann als Parameter das Thema aus dem die Nachricht entstammt als `char* topic`, die Nachricht selbst als Byte-Array `byte* payload` und die Länge (Anzahl der Zeichen) der Nachricht als Ganzzahl `unsigned int msgLength`. Diese können dann zu einem lesbaren Ergebnis verarbeitet werden.
+
+Nach Verbindung zum Broker mittels
+
+```
+mqttClient.connect(clientName);
+```
+
+wobei auch der Name des Clients gesetzt wird, können die *publish*- und *subscribe*-Methoden genutzt werden.
+
+Das Schreiben von Nachrichten in ein Thema wird Mittels
+
+```
+mqttClient.publish(topicName, "Hello from ESP8266");
+```
+
+realisiert. Das Abonnieren eines Themas Operationen
+
+```
+mqttClient.subscribe(topicName);
+```
+
+
 ## Weiterentwicklung
 
-[in Bearbeitung]
+MQTT besitzt mehrere sog. QoS-Level. Die verwendete Bibliothek ist allerdings beschränkt. Gibt es eine Möglichkeit andere Level umzusetzen?
 
 ## Weiterführende Literatur
 
 * [MQTT](http://mqtt.org/faq) - Offizielle FAQ zum MQTT-Protokoll
+* [PubSubClient](https://github.com/knolleary/pubsubclient) - Git der PubSubClient-Library
 
 ## Entwickelt mit
 
