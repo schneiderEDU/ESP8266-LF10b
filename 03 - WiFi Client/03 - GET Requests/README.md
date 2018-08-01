@@ -27,6 +27,7 @@ GET-Requests sind einfach zu konstruieren und können, sofern sie per Browser au
 
 ## Weiterführende Literatur
 
+* [ASCII](https://de.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange) - Erläuterungen zu American Standard Code for Information Interchange (ASCII)
 * [Client](http://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/client-examples.html) - Beispiele für die Verwendung *ESP8266HTTPClient.h*-Bibliothek
 * [GET vs. POST](https://www.diffen.com/difference/GET-vs-POST-HTTP-Requests) - Vergleich von GET- und POST-HTTP-Requests
 * [HTTP Protokoll](https://www.elektronik-kompendium.de/sites/net/0902231.htm) - Erläuterungen zum HTTP-Protokoll
