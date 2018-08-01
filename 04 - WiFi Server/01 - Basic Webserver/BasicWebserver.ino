@@ -13,19 +13,19 @@ ESP8266WebServer server(serverPort);
 
 //Funktion für Aufruf des Wurzelverzeichnisses
 void handleRootPath() {
-    //Sende HTTP-Antwortcode 200 (OK) und Text
+    //Sende HTTP-Statuscode 200 (OK) und Text
     server.send(200, "text/plain", "This is the root path");
 }
 
 //Funktion für Aufruf des /alt-Pfads
 void handleAltPath() {
-    //Sende HTTP-Antwortcode 200 (OK) und Text
+    //Sende HTTP-Statuscode 200 (OK) und Text
     server.send(200, "text/plain", "This is the alternative path");
 }
 
 //Funktion für Aufruf aller anderen ungültigen Pfade
 void handleNotFound() {
-    //Sende HTTP-Antwortcode 404 (Not found) und Text
+    //Sende HTTP-Statuscode 404 (Not found) und Text
     server.send(404, "text/plain", "The requested URL was not found on this server.");
 }
 
