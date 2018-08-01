@@ -8,8 +8,8 @@ const char* password = "mysupersecretpassword";
 const int WAIT_DELAY = 10000;
 long last_millis = -1;
 
-const char*   broker = "broker.mqtt-dashboard.com";
-const int     port = 1883;
+const char*  broker = "broker.mqtt-dashboard.com";
+const int    port = 1883;
 const char*  clientName = "WeMos Client";
 const char*  topicName  = "hbfTest";
 
