@@ -29,6 +29,9 @@ GET-Requests sind einfach zu konstruieren und können, sofern sie per Browser au
 
 * [Client](http://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/client-examples.html) - Beispiele für die Verwendung *ESP8266HTTPClient.h*-Bibliothek
 * [GET vs. POST](https://www.diffen.com/difference/GET-vs-POST-HTTP-Requests) - Vergleich von GET- und POST-HTTP-Requests
+* [HTTP Protokoll](https://www.elektronik-kompendium.de/sites/net/0902231.htm) - Erläuterungen zum HTTP-Protokoll
+* [HTTPS](https://www.marcobeierer.de/wissen/ssl-tls-und-https-erklaert) - Erläuterungen zu HTTPS, SSL und TLS
+* [WebHooks](https://de.wikipedia.org/wiki/WebHooks) - Kurze Erläuterung und Liste mit Anwendern von WebHooks
 
 ## Entwickelt mit
 
