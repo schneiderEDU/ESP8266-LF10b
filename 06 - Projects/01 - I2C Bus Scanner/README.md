@@ -18,10 +18,13 @@ Um zu erkennen welche Busadressen durch ein oder mehrere Geräte belegt sind, mu
 
 ## Durchführung
 
-###
+### Realisierung des I2C-Scanners
+
+### Implementierung des Webservers und der Webseite
 
 ## Fazit
 
+Hier könnten neue Erkenntnisse oder Probleme (und deren Lösung) aufgeführt und diskutiert werden.
 
 ## Literatur
 
