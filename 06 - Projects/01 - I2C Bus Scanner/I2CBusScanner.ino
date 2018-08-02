@@ -8,8 +8,8 @@
 #define SDA D2
 
 //WiFi
-const char* ssid = "UPC554A57E";
-const char* password = "Yx6p7ywmurew";
+const char* ssid = "MYWIFISSID";
+const char* password = "MYSUPERSECRETPASSWORD";
 
 //SearchResults
 String deviceString;
