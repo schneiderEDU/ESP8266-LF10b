@@ -68,14 +68,17 @@ void connectWiFi() {
 }
 
 //Check if an i2c device is present at the given address
-bool checkAddress(int& address) {
+int checkAddress(int& address) {
   byte errorCode, busAddress;
-  bool deviceFound = false;
+  int deviceFound = 0;
   busAddress = (byte) address;
   Wire.beginTransmission(busAddress);
   errorCode = Wire.endTransmission();
   if(errorCode == 0) {
-    deviceFound = true;
+    deviceFound = 1;
+  }
+  else if (errorCode == 4) {
+    deviceFound = 2;
   }
   return deviceFound;
 }
@@ -83,16 +86,23 @@ bool checkAddress(int& address) {
 //Searches for devices and return the results as HTML page
 String searchDevices() {
   int countDevices = 0;
+  int countErrors = 0;
   deviceString = "<html><body><head><title>I2C Scanner</title></head><h1>I2C Scanner</h1><p><h3>Wiring</h3>SDA: "+ String(SDA) +"<br/>SCL: "+ String(SCL) + " </p><p><h3>Scan results</h3><ul>";
   for (int i = 0; i < 127; i++) {
-    if(checkAddress(i)) {
-      deviceString = deviceString + "<li>I2C device found at address 0x" + decToHex(i)  + "</li>";
-      countDevices++;
+    if(checkAddress(i) != 0) {
+      if(checkAddress(i) == 1) {
+        deviceString = deviceString + "<li>I2C device found ";
+        countDevices++;
+      }
+      else {
+        deviceString = deviceString + "<li>Unknown error ";
+        countErrors++;
+      }
+      deviceString = deviceString + "at address 0x" + decToHex(i)  + "</li>";
     }
   }
   deviceString += "</ul></p>";
-  deviceString += "<p>Scan completed. Found " + String(countDevices) + " devices.</p><button onClick=\"window.location.reload()\">Scan again</button></body><html>";
-
+  deviceString += "<p>Scan completed. Found " + String(countDevices) + " devices. " + countErrors + " errors occured.</p><button onClick=\"window.location.reload()\">Scan again</button></body><html>";
   return deviceString;
 }
 
