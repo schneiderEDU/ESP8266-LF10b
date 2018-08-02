@@ -68,17 +68,14 @@ void connectWiFi() {
 }
 
 //Check if an i2c device is present at the given address
-int checkAddress(int& address) {
+bool checkAddress(int& address) {
   byte errorCode, busAddress;
-  int deviceFound = 0;
+  bool deviceFound = false;
   busAddress = (byte) address;
   Wire.beginTransmission(busAddress);
   errorCode = Wire.endTransmission();
   if(errorCode == 0) {
-    deviceFound = 1;
-  }
-  else if (errorCode == 4) {
-    deviceFound = 2;
+    deviceFound = true;
   }
   return deviceFound;
 }
@@ -102,7 +99,11 @@ String searchDevices() {
     }
   }
   deviceString += "</ul></p>";
-  deviceString += "<p>Scan completed. Found " + String(countDevices) + " devices. " + countErrors + " errors occured.</p><button onClick=\"window.location.reload()\">Scan again</button></body><html>";
+  deviceString += "<p>Scan completed. " + String(countDevices) + " device";
+  if (countDevices != 1) deviceString += "s";
+  deviceString += " found. " + String(countErrors) + " error";
+  if (countErrors != 1) deviceString += "s";
+  deviceString += " occured.</p><button onClick=\"window.location.reload()\">Scan again</button></body><html>";
   return deviceString;
 }
 
