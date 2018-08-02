@@ -14,11 +14,11 @@ Das I2C-Protokoll (auch *IIC*, Inter-integrated circuit) wurde für die Kommunik
 Der ESP8266 unterstützt das I2C-Protokoll. Der WeMos D1 mini im Speziellen stellt die I2C-Funktionalität an den Pins D1 (*SCL*) und D2 (*SDA*) bereit.
 
 ## Vorüberlegungen
-Um zu erkennen welche Busadressen durch ein oder mehrere Geräte belegt sind, muss jede Adresse einmal angesprochen werden. Falls man eine Antwort erhält ist ein Gerät mit dieser Adresse am Bus angeschlossen. Zur Anzeige kann das vorhandene Display nicht verwendet werden, da es selbst über I2C betrieben wird. Zwar könnte dieses Gerät aus den Scan-Ergebnissen herausgefiltert werden, aber dann wäre es nicht mehr möglich nach genau diesem Geräte-Typ zu scannen. Deshalb muss eine andere Form der Darstellung gewählt werden.
+Um zu erkennen welche Busadressen durch ein oder mehrere Geräte belegt sind, muss jede Adresse einmal angesprochen werden. Falls man eine Antwort erhält ist ein Gerät mit dieser Adresse am Bus angeschlossen. Zur Anzeige kann das vorhandene Display nicht verwendet werden, da es selbst über I2C betrieben wird. Zwar könnte dieses Gerät aus den Scan-Ergebnissen herausgefiltert werden, aber dann wäre es nicht mehr möglich nach genau diesem Geräte-Typ zu scannen. Deshalb muss eine andere Form der Darstellung gewählt werden. Hier bietet sich eine simple Webseite an, da somit von jedem Rechner oder Smartphone im Netzwerk auf das Gerät zugegriffen werden kann und keine weitere Software, mit Ausnahme eines Browser, benötigt wird.
 
 ## Durchführung
 
-[in Bearbeitung]
+###
 
 ## Fazit
 
