@@ -8,12 +8,13 @@ Deine Firma erhält eine Vielzahl an verschiedenen Sensoren und Aktoren, die den
 
 ### I2C
 
-Das I2C-Protokoll (auch *IIC*, Inter-integrated curcuit) wurde für die Kommunikation von mehreren Sensoren oder Aktoren (*"slaves"*) mit einem oder mehreren Steuergeräten (*"master"*) über einen Bus entworfen. Ähnlich wie auch andere Bussysteme ist I2C zur Verwendung über kurze Entfernungen, innerhalb eines Geräts, ausgelegt. Zur Kommunikation werden zwei Signalleitungen benötigt, jeweils eine für ein Taktsignal (*SCL*) und die Daten (*SDA*). Jedes Gerät, besser jeder IC, erhält seitens des Herstellers laut ursprünglicher Spezifizierung eine 7 Bit große Adresse, wodurch es theoretisch möglich ist Geräte mit Adressen von 0 bis 127 zu adressieren. In einer späteren Spezifizierung wurde die Adressgröße um 3 Bit erweitert, wodurch sich auch der Adressraum auf 0 bis 1023 ausweitet.
+Das I2C-Protokoll (auch *IIC*, Inter-integrated circuit) wurde für die Kommunikation von mehreren Sensoren oder Aktoren (*"slaves"*) mit einem oder mehreren Steuergeräten (*"master"*) über einen Bus entworfen. Ähnlich wie auch andere Bussysteme ist I2C zur Verwendung über kurze Entfernungen, innerhalb eines Geräts, ausgelegt. Zur Kommunikation werden zwei Signalleitungen benötigt, jeweils eine für ein Taktsignal (*SCL*) und die Daten (*SDA*). Jedes Gerät, besser jeder IC, erhält seitens des Herstellers laut ursprünglicher Spezifizierung eine 7 Bit große Adresse, wodurch es theoretisch möglich ist Geräte mit Adressen von 0 bis 127 zu adressieren. In einer späteren Spezifizierung wurde die Adressgröße um 3 Bit erweitert, wodurch sich auch der Adressraum auf 0 bis 1023 ausweitet.
 
 ### ESP8266
 Der ESP8266 unterstützt das I2C-Protokoll. Der WeMos D1 mini im Speziellen stellt die I2C-Funktionalität an den Pins D1 (*SCL*) und D2 (*SDA*) bereit.
 
 ## Vorüberlegungen
+Um zu erkennen welche Busadressen durch ein oder mehrere Geräte belegt sind, muss jede Adresse einmal angesprochen werden. Falls man eine Antwort erhält ist ein Gerät mit dieser Adresse am Bus angeschlossen. Zur Anzeige kann das vorhandene Display nicht verwendet werden, da es selbst über I2C betrieben wird. Zwar könnte dieses Gerät aus den Scan-Ergebnissen herausgefiltert werden, aber dann wäre es nicht mehr möglich nach genau diesem Geräte-Typ zu scannen. Deshalb muss eine andere Form der Darstellung gewählt werden.
 
 ## Durchführung
 
