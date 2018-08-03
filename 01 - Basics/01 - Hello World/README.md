@@ -6,11 +6,8 @@ Jeder Neueinstieg in die Programmierung beginnt mit einem *Hello World*. Leider 
 
 Ein Mikrocontroller, wie der ESP8266 oder auch Arduinos, haben zunächst keine Möglichkeit zur Ausgabe. Um Displays oder andere Möglichkeiten von Outputs kümmern wir uns zu einem späteren Zeitpunkt.
 
-
-
 ## Weiterentwicklung
 
-...
 
 ## Entwickelt mit
 
