@@ -8,8 +8,8 @@
 #define SDA D2
 
 //WiFi
-const char* ssid = "MYWIFISSID";
-const char* password = "MYSUPERSECRETPASSWORD";
+const char* ssid = "UPC554A57E";
+const char* password = "Yx6p7ywmurew";
 
 //SearchResults
 String deviceString;
@@ -68,14 +68,17 @@ void connectWiFi() {
 }
 
 //Check if an i2c device is present at the given address
-bool checkAddress(int& address) {
+int checkAddress(int& address) {
   byte errorCode, busAddress;
-  bool deviceFound = false;
+  int deviceFound = 0;
   busAddress = (byte) address;
   Wire.beginTransmission(busAddress);
   errorCode = Wire.endTransmission();
   if(errorCode == 0) {
-    deviceFound = true;
+    deviceFound = 1;
+  }
+  else if (errorCode == 4) {
+    deviceFound = 2;
   }
   return deviceFound;
 }
