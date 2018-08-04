@@ -8,6 +8,10 @@ Ein Kunde wacht mehrmals in der Nacht auf und muss jedes Mal nach dem Lichtschal
 
 Die maximale Gruppengröße umfasst 2 Mitglieder.
 
+## Schwierigkeitsgrad (1-3 Sterne)
+
+:star: :star: 
+
 ## Ressourcen
 
 * [Blynk](https://blynk.cc)

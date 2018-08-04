@@ -8,6 +8,10 @@ Euer Nachbar ist Hobbymeteorologe und möchte gerne die Wetterdaten seines Wohno
 
 Die maximale Gruppengröße umfasst 3 Mitglieder.
 
+## Schwierigkeitsgrad (1-3 Sterne)
+
+:star: :star: :star:
+
 ## Ressourcen
 
 * [Chart.js](http://www.chartjs.org/)

@@ -8,6 +8,10 @@ Ein großer YouTuber beauftragt euch damit eine Informatiksystem zur Anzeige sei
 
 Die maximale Gruppengröße umfasst 2 Mitglieder.
 
+## Schwierigkeitsgrad (1-3 Sterne)
+
+:star:
+
 ## Ressourcen
 
 * [Google Developers API Console](https://console.developers.google.com)

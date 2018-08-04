@@ -8,6 +8,10 @@ Ein Kunde möchte gerne eine drahtlose Türklingel haben. Bei Druck auf den Klin
 
 Die maximale Gruppengröße umfasst 2 Mitglieder.
 
+## Schwierigkeitsgrad (1-3 Sterne)
+
+:star: :star: :star:
+
 ## Ressourcen
 
 * [Telegram](https://core.telegram.org/bots/api)
