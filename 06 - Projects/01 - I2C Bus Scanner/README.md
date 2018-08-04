@@ -19,7 +19,7 @@ Um zu erkennen welche Busadressen durch ein oder mehrere Geräte belegt sind, mu
 ## Durchführung
 
 ### Realisierung des I2C-Scanners
-Der I2C-Scanner wurde mittels der *Wire*-Bibliothek realisiert. Damit übernimmt der ESP8266 die Rolle des Busmasters und fragt sendet ein Paket an eine zu spezifizierende Adresse des Busses.
+Der I2C-Scanner wurde mittels der *Wire*-Bibliothek realisiert. Damit übernimmt der ESP8266 die Rolle des Busmasters und sendet ein Paket an eine zu spezifizierende Adresse des Busses.
 
 ```
 int checkAddress(int& address) {
