@@ -10,7 +10,7 @@ void setup () {
 
 //loop() wird bis zum Spannungsverlust des SoCs zyklisch durchlaufen
 void loop () {
-  Serial.print (i)
+  Serial.print (i);
   Serial.println(". Loop\n");
   i++;
   //Warte 1000ms
