@@ -3,8 +3,8 @@ int i = 1;
 
 //setup() wird zum Start des SoCs genau einmal ausgeführt
 void setup () {
-  //Initialisiere serielle Schnittstelle auf 9600 Baud
-  Serial.begin(9600);
+  //Initialisiere serielle Schnittstelle auf 115200 Baud
+  Serial.begin(115200);
   Serial.println("Setup");
 }
 
