@@ -1,6 +1,6 @@
 # 06 - mDNS (Multicast DNS)
 
-
+Soon...
 
 ## Grundlagenwissen
 

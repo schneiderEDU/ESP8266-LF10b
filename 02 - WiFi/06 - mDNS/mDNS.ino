@@ -24,6 +24,7 @@ void setup() {
   Serial.print("Connected as ");
   Serial.println(WiFi.localIP());
   Serial.print("Starting mDNS responder...");
+  //mDNS responder starten, bei Erfolg löst dieser auf myesp.local auf
   if(!MDNS.begin(name)) {
     Serial.println("failed!");
   }
