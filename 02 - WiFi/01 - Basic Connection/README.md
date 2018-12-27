@@ -15,7 +15,7 @@ Zur Wahrung der Übersichtlichkeit des Programmtextes, bietet es sich an die Zug
 
 ```
 const char* ssid = "MYWIFISSID";
-const char* password = mysupersecretpassword";
+const char* password = "mysupersecretpassword";
 ```
 
 Für die eigentliche Verbindung ist lediglich ein Aufruf der *begin*-Funktion des *WiFi*-Objekts mit Übergabe der Zugangsdaten nötig.
