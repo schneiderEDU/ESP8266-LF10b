@@ -7,7 +7,7 @@ Gerade im Internet der Dinge wird die Inter-Systemkommunikation oftmals über [W
 Zur Verwendung dieser Funktionalität benötigen wir einen *HTTPClient*, der eine Verbindung zu einem Server über das HTTP(S)-Protokoll aufbauen kann. Dieser wird durch die Bibliothek `ESP8266HTTPClient.h` bereitgestellt. Diese ist zu inkludieren, per
 
 ```
-#include <ESP8266HTTPClient.>
+#include <ESP8266HTTPClient.h>
 ```
 
 Darüberhinaus wird ein Verbindungsziel in Form einer URL benötigt. Dieses legen wir in einer Variablen fest.
